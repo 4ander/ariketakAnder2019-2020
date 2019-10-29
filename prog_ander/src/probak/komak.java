@@ -1,7 +1,7 @@
 package probak;
 import java.util.Scanner;
 public class komak {
-
+/*heyquepasa*/
 	public static void main(String[] args) {
 		Scanner teklatua=new Scanner(System.in);
 		String zerbait;
