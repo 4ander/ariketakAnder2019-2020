@@ -1,5 +1,6 @@
 package eb2;
 import java.util.Scanner;
+/*espazioak ez ditu errespetatzen*/
 /*Iturri-kode honek kateak eskatzen ditu eta karakteretan gordetzen ditu gero, karaktere handiena eta txikiena hemateko*/
 public class PR0316hitzak {
 
