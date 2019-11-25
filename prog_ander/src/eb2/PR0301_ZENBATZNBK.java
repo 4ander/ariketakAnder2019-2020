@@ -16,8 +16,7 @@ public static void main(String[] args) {
 	znbk=teklatua.nextInt();
 	while (znbk!=0) {
 		for(int i=0;i<=zerrenda.length-1; i++) {
-			/*ez dago ondo 
-			 * znbk-1==zerrenda[i]*/
+			
 			if(znbk-1==i) {
 				zerrenda[i]++;
 				System.out.println("hemaidazu zebaki bat: ");
