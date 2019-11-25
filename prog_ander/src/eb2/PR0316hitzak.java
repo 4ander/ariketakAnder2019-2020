@@ -35,7 +35,7 @@ public class PR0316hitzak {
 				maxznbk=karaktereak[w];
 			}
 		}
-		System.out.println("zenbakirik altuena "+maxznbk+"("+max+") da, eta txikiena "+minznbk+" da, ("+min+")");
+		System.out.println("zenbakirik haltuena "+maxznbk+"("+max+") da, eta txikiena "+minznbk+" da, ("+min+")");
 
 	}
 
