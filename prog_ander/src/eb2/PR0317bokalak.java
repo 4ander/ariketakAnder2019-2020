@@ -20,7 +20,7 @@ public class PR0317bokalak {
 				aeiou[1]++;
 			}else if(karaktereak[i]==73|karaktereak[i]==105){
 				aeiou[2]++;
-			}else if(karaktereak[i]==79||karaktereak[i]==105) {
+			}else if(karaktereak[i]=='o'||karaktereak[i]=='O') {
 				aeiou[3]++;
 			}else if(karaktereak[i]==85|karaktereak[i]==117) {
 				aeiou[4]++;

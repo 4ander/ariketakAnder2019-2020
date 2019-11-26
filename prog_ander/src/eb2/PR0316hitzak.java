@@ -22,9 +22,9 @@ public class PR0316hitzak {
 			System.out.println(balioak[i]+"---"+karaktereak[i]);
 		}
 		int min=balioak[0];
-		char minznbk = 0;
+		char minznbk = karaktereak[0];
 		int max=balioak[0];
-		char maxznbk = 0;
+		char maxznbk = karaktereak[0];
 		//minimoa kalkulatzen da
 		for(int w=0;w<balioak.length;w++) {
 			if(min>balioak[w]) {
@@ -36,7 +36,7 @@ public class PR0316hitzak {
 				maxznbk=karaktereak[w];
 			}
 		}
-		System.out.println("zenbakirik haltuena "+maxznbk+"("+max+") da, eta txikiena "+minznbk+" da, ("+min+")");
+		System.out.println("zenbakirik haltuena "+maxznbk+" ("+max+") da, eta txikiena "+minznbk+ "("+min+") da, ");
 
 	}
 
