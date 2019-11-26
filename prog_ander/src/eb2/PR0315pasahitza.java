@@ -25,7 +25,7 @@ public class PR0315pasahitza {
 				aurkitzeko=false;
 			}
 			}
-		}if(aurkitzeko==true&aukerak!=1) {
+		}if(aurkitzeko==true&aukerak!=1) {	
 			aukerak--;
 			System.out.println("errorea erabiltzaile edo pasahitzean, beste "+aukerak+" aukera dituzu sartzeko...");
 			System.out.println("hemaidazu izena: ");
