@@ -18,7 +18,7 @@ public class PR0328hiztegi {
 		}
 		/*bukle honek hiztegia azken hitzetik lenengora konparatzen du besteekin, ordenatzeko*/
 		do {
-		for(int d=hiztegia.length-1;d>=0;d--) {
+		for(int d=hiztegia.length-1;d!=0;d--) {
 			for(int hitz=0;hitz<hiztegia.length-1&hitz!=d;hitz++) {
 				if(hiztegia[d].compareTo(hiztegia[hitz])<0) {
 					aldaketa_gabe=false;
