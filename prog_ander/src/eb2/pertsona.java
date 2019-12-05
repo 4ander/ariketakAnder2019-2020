@@ -52,15 +52,12 @@ public class pertsona {
 	}
 	
 	public pertsona(){
-		System.out.println("sortu da lehen pertsona");
-		String izena="izen berria";
-		String abizena="abizen berria";
-		String NAN="nanberria";
-		int adina=0;
-		System.out.print(izena);
-		System.out.println(abizena);
-		System.out.println(NAN);
-		System.out.println(adina);
+	
+		datuaksartu("nangabe", "izenbarik", "abizenbarik", 0);
 		
+	}
+	public pertsona(String izena) {
+		this.izena=izena;
+		ikasleaaurkeztu();
 	}
 }
