@@ -32,9 +32,39 @@ public class PR0501main {
 		for(int w=0;w<kont.size();w++) {
 			System.out.println(kont.get(w).kopurua+" "+kont.get(w).izena+" daude");
 		}
+		System.out.println("objeturen bat modifikatu? ");
+		aukera=teklatua.next();
+		while(!aukera.equals("ez")) {
+			System.out.println("1, gehitzeko");
+			System.out.println("2, kentzeko");
+			System.out.println("3, aldaketa zuzenean egiteko");
+			String aukeratu=teklatua.next();
+			
+			
+			switch(aukeratu) {
+				1:
+					
+			}
+		}
 		
 		
 		
+	}
+	public void gehitu() {
+		
+	}
+	public void kendu() {
+		
+	}
+	public void aldatu() {
+		
+	}
+	public void bilatu() {
+		Scanner teklatua=new Scanner(System.in);
+		System.out.println("zein objetu?: ");
+		String aurkitzeko=teklatua.next();
+		
+		for(static int x=0;x<)
 	}
 
 }
