@@ -2,6 +2,7 @@ package eb3;
 import java.io.*;
 import java.util.Scanner;
 public class ariketa1 {
+	/*funciona pero no guarda el resultau en el fichero*/
 
 	public static void main(String[] args) {
 		File fitxategiaIzenak;
