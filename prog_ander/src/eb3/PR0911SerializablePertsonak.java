@@ -14,9 +14,9 @@ public class PR0911SerializablePertsonak  {
 		ArrayList<serializPertsona>ALP=new ArrayList();
 
 		
-		FileOutputStream fos=new FileOutputStream ("ariketa.txt");
+		FileOutputStream fos=new FileOutputStream ("C:\\Users\\ik_1dw3\\Desktop\\borra\\prog_ander\\fitxategiak\\ariketa.txt");
 		ObjectOutputStream oos=new ObjectOutputStream(fos);
-		FileInputStream fis=new FileInputStream ("ariketa.dat");
+		FileInputStream fis=new FileInputStream ("C:\\Users\\ik_1dw3\\Desktop\\borra\\prog_ander\\fitxategiak\\ariketa.dat");
 		ObjectInputStream ois=new ObjectInputStream(fis);
 		serializPertsona P1=new serializPertsona("Ander","Gomez","Zabala");
 		serializPertsona P2=new serializPertsona("Arkaitz","Garcia","Otero");

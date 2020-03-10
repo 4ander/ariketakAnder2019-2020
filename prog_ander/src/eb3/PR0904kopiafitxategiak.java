@@ -14,10 +14,7 @@ public class PR0904kopiafitxategiak {
 		fitx2=teklatua.next();
 		File fitxategiKopia=new File("fitxategiak/"+fitx2);
 		FileWriter fw=new FileWriter(fitxategiKopia);
-		FileReader fr=new FileReader(fitxategiOriginala);
-		FileReader fr2=new FileReader(fitxategiKopia);
-		BufferedReader br=new BufferedReader(fr);
-		BufferedReader br2=new BufferedReader(fr2);
+		BufferedReader br=new BufferedReader(new FileReader("fitxategiak/"+fitx1));
 		PrintWriter pw=new PrintWriter(fitxategiKopia);
 		String lerroa;
 		
@@ -27,7 +24,6 @@ public class PR0904kopiafitxategiak {
 		}
 		fw.close();
 		br.close();
-		fr.close();
 		pw.close();
 	}
 
