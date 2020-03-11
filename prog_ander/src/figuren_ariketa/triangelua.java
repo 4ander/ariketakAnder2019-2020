@@ -13,13 +13,13 @@ public class triangelua extends figurak{
 		
 		
 	}
-	public double az() {
-		double aza=getoinarria()*getaltuera()/2;
-		return aza;
+	public void az() {
+		double triaza=getoinarria()*getaltuera()/2;
+		azalera= triaza;
 	}
-	public double per() {
-		double peri=aldea1+aldea2+aldea3;
-		return peri;
+	public void per() {
+		double triperi=aldea1+aldea2+aldea3;
+		perimetroa= triperi;
 	}
 
 }

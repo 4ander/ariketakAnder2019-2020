@@ -40,12 +40,19 @@ public class figurafitxategia {
 					System.out.println(ALF.get(i).getmota());
 				}
 				int figaukera=teklatua.nextInt();
-				//ALF.get(figaukera);
-			}
-			if(aukera==4) {
+				ALF.get(figaukera).getperimetroa();
 				
 			}
-			System.out.println("esan egin nahi duzuna: \n 1.-Zerrenda ikusi \n 2.-Figura berri bat sartu \n 3.-Figura bat ezabatu \n 4.- Gorde eta irten");
+			if(aukera==4) {
+				System.out.println("Esan figuraren posizioa eta perimetroa kalkulatuko da: ");
+				for(int i=0; i<ALF.size();i++) {
+					System.out.println(ALF.get(i).getmota());
+				}
+				int figaukera=teklatua.nextInt();
+				ALF.get(figaukera).getazalera();
+				
+			}
+			System.out.println("esan egin nahi duzuna: \n 1.-Zerrenda ikusi \\n 2.-Figura berri bat sartu \\n 3.-Figura baten perimetroa kalkulatu \\n 4.- figura baten azalera kalkulatu \\n 5.- irten");
 			aukera=teklatua.nextInt();
 			
 		}
