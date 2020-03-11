@@ -22,10 +22,10 @@ public class figurafitxategia {
 		ALF.add(T1);*/
 		
 		
-		System.out.println("ongi etorri, esan egin nahi duzuna: \n 1.-Zerrenda ikusi \n 2.-Figura berri bat sartu \n 3.-Figura bat ezabatu \n 4.- Gorde eta irten");
+		System.out.println("ongi etorri, esan egin nahi duzuna: \n 1.-Zerrenda ikusi \n 2.-Figura berri bat sartu \n 3.-Figura baten perimetroa kalkulatu \n 4.- figura baten azalera kalkulatu \n 5.- irten");
 		int aukera=teklatua.nextInt();
 		
-		while(aukera!=4) {
+		while(aukera!=5) {
 			if(aukera==1) {
 				for(int i=0; i<ALF.size();i++) {
 					System.out.println(ALF.get(i).getmota());
@@ -35,6 +35,14 @@ public class figurafitxategia {
 				
 			}
 			if(aukera==3) {
+				System.out.println("Esan figuraren posizioa eta perimetroa kalkulatuko da: ");
+				for(int i=0; i<ALF.size();i++) {
+					System.out.println(ALF.get(i).getmota());
+				}
+				int figaukera=teklatua.nextInt();
+				//ALF.get(figaukera);
+			}
+			if(aukera==4) {
 				
 			}
 			System.out.println("esan egin nahi duzuna: \n 1.-Zerrenda ikusi \n 2.-Figura berri bat sartu \n 3.-Figura bat ezabatu \n 4.- Gorde eta irten");
