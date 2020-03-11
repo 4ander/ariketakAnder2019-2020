@@ -9,13 +9,13 @@ public class zirkulua extends figurak{
 		this.radioa=radioa;
 	}
 	
-	public void per() {
-		double zirperi=pi*radioa*2;
-		perimetroa= zirperi;
+	public double perimetroa() {
+		double perimetroa=pi*radioa*2;
+		return perimetroa;
 	}
-	public void aza() {
-		double ziraza=Math.pow((pi*radioa),2);
-		azalera= ziraza;
+	public double azalera() {
+		double azalera=Math.pow((pi*radioa),2);
+		return azalera;
 	}
 
 }

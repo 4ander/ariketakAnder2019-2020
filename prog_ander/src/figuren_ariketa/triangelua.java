@@ -4,6 +4,8 @@ public class triangelua extends figurak{
 	private int aldea1;
 	private int aldea2;
 	private int aldea3;
+	private int oinarria;
+	private int altuera;
 
 	triangelua(String mota, int altuera, int oinarria, int aldea1, int aldea2, int aldea3) {
 		super(mota, oinarria, altuera);
@@ -13,13 +15,13 @@ public class triangelua extends figurak{
 		
 		
 	}
-	public void az() {
-		double triaza=getoinarria()*getaltuera()/2;
-		azalera= triaza;
+	public double azalera() {
+		double azalera=oinarria*altuera/2;
+		return azalera;
 	}
-	public void per() {
-		double triperi=aldea1+aldea2+aldea3;
-		perimetroa= triperi;
-	}
+	public double perimetroa() {
+		double perimetroa=aldea1+aldea2+aldea3;
+		return perimetroa;
+}
 
 }

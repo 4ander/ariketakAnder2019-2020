@@ -2,16 +2,20 @@ package figuren_ariketa;
 
 public class laukia extends figurak{
 
+	private static double laukiaza;
+	private double laukiperi;
+	
 	laukia(String mota, int altuera, int oinarria) {
 		super(mota, oinarria, altuera);
 	}
-	public void per() {
-		double laukper=getaltuera()*getoinarria();
-		perimetroa= laukper;
+	public double perimetroa() {
+		double perimetroa=getaltuera()*getoinarria();
+		return perimetroa;
 	}
-	public void az() {
-		double laukaza=Math.pow(getaltuera(), 2);
-		azalera= laukaza;
+	public double azalera() {
+		double azalera=Math.pow(getaltuera(), 2);
+		return azalera;
 	}
+	
 
 }

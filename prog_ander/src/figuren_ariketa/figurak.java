@@ -2,12 +2,12 @@ package figuren_ariketa;
 
 import java.io.Serializable;
 
-public class figurak implements Serializable{
+public abstract class figurak implements Serializable{
+	private static final long serialVersionUID = 1234567L;
 	private int altuera;
 	private int oinarria;
 	private String mota;
-	protected static double azalera;
-	protected static double perimetroa;
+	
 	
 	figurak( String mota, int altuera, int oinarria){
 		this.mota=mota;
@@ -23,11 +23,7 @@ public class figurak implements Serializable{
 	public String getmota() {
 		return mota;
 	}
-	public double getazalera() {
-		return azalera;
-	}
-	public double getperimetroa() {
-		return perimetroa;
-	}
+	public abstract double azalera();
+	public abstract double perimetroa();
 	
 }
