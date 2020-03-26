@@ -1,12 +1,14 @@
-package eb3;
+package DBkudeaketaAplikazioa;
 
 import java.awt.EventQueue;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -42,6 +44,7 @@ public class ikasleak_3_a {
 	private Connection konexioa;
 	private Statement st;
 	private ResultSet rs;
+	private ArrayList<ikasleak>DBikasleak=new ArrayList<ikasleak>();
 	private ArrayList<String>Ezabaketak=new ArrayList<String>();
 	private  int ezabaketak=0;
 	private  int aldaketak=0;
@@ -102,10 +105,13 @@ public class ikasleak_3_a {
 		btn_eguneratu = new JButton("Eguneratu");
 		btn_eguneratu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				// errorea hematen du eguneraketa();
 				ezabaketa();
 				DLM.removeAllElements();
 				konektatu();
 				System.out.println("Ezabaketa kopurua "+ezabaketak+" izan da");
+				System.out.println("Aldaketa kopurua"+aldaketak+" izan da");
 
 			}
 
@@ -125,6 +131,32 @@ public class ikasleak_3_a {
 		
 		
 	}
+	protected void eguneraketa() {
+		for(int i=0;i<DB_AL().size();i++) {
+			for(int w=0;w<ALikasleak().size();w++) {
+				if(DB_AL().get(i).equals(ALikasleak().get(i).getNana())) {
+					try {
+						st.execute("update ikasleak2 set izena='"+ALikasleak().get(i).getIzena()+"',abizena='"+ALikasleak().get(i).getAbizena()+"', taldea='"+ALikasleak().get(i).getTaldea()+"' where nan='"+DB_AL().get(i)+"'");
+						aldaketak++;
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else {
+					try {
+						st.execute("insert into ikasleak2 values('"+ALikasleak().get(i).getNana()+"','"+ALikasleak().get(i).getIzena()+"','"+ALikasleak().get(i).getAbizena()+"','"+ALikasleak().get(i).getTaldea()+"'");
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+		
+		
+	}
+
 	public void konektatu() {
 		
 		try {
@@ -132,13 +164,15 @@ public class ikasleak_3_a {
 			System.out.println("Konexio egokia.");
 			st=konexioa.createStatement();
 			rs=st.executeQuery("select * from ikasleak2");
-			int lista=0;
+			
 			while (rs.next()){
-				DLM.add(lista,"Nan: " + rs.getObject("nan") + ", Izena: " +
-				rs.getObject("izena") + ", Abizena: " + rs.getObject("abizenak") + ", Taldea: " +
-				rs.getObject("taldea"));
-				lista++;
+				ikasleak ik=new ikasleak((String)rs.getObject("nan"),(String)rs.getObject("izena"),(String)rs.getObject("abizenak"),(String)rs.getObject("taldea"));
+				DBikasleak.add(ik);
+				
 				}
+			for(int i=0;i<DBikasleak.size();i++) {
+				DLM.add(i, DBikasleak.get(i).toString());
+			}
 			ikasleak_lista.setModel(DLM);
 				// ResultSet itxi
 				rs.close();
@@ -216,6 +250,23 @@ public class ikasleak_3_a {
 			}
 			
 		
+	}
+	
+	private ArrayList<ikasleak> ALikasleak(){
+		ArrayList<ikasleak>ALikasleak=new ArrayList<ikasleak>();
+		
+		try {
+			FileReader fr=new FileReader("fitxategiak/dbaldaketa.dat");
+			FileInputStream fis=new FileInputStream("fitxategiak/dbaldaketa.dat");
+			ObjectInputStream ois=new ObjectInputStream(fis);
+			ALikasleak=(ArrayList<ikasleak>)ois.readObject();
+		} catch (IOException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return ALikasleak;
 	}
 	
 	
