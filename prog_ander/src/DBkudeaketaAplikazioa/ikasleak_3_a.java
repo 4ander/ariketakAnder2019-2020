@@ -105,14 +105,31 @@ public class ikasleak_3_a {
 		btn_eguneratu = new JButton("Eguneratu");
 		btn_eguneratu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				// errorea hematen du eguneraketa();
+				System.out.println("fitxategia");
+				for(int w=0;w<ALikasleak().size();w++) {
+					System.out.println(ALikasleak().get(w).getNana());
+				}
+				System.out.println("-------------------------datubasea");
+				for(int i=0;i<DB_AL().size();i++) {
+					System.out.println(DB_AL().get(i));
+					}
+				if(ALikasleak().get(0).getNana().equals(DB_AL().get(0))) {
+					System.out.println("berdinak dira");
+					
+				}
+				else {
+					System.out.println("ezberdinak dira");
+				}
+				eguneraketa();
 				ezabaketa();
 				DLM.removeAllElements();
 				konektatu();
 				System.out.println("Ezabaketa kopurua "+ezabaketak+" izan da");
-				System.out.println("Aldaketa kopurua"+aldaketak+" izan da");
+				System.out.println("Aldaketa kopurua "+aldaketak+" izan da");
+				System.out.println("Txertaketa kopurua "+inserzioak+" izan da");
 
+
+				
 			}
 
 			
@@ -132,27 +149,53 @@ public class ikasleak_3_a {
 		
 	}
 	protected void eguneraketa() {
-		for(int i=0;i<DB_AL().size();i++) {
-			for(int w=0;w<ALikasleak().size();w++) {
-				if(DB_AL().get(i).equals(ALikasleak().get(i).getNana())) {
-					try {
-						st.execute("update ikasleak2 set izena='"+ALikasleak().get(i).getIzena()+"',abizena='"+ALikasleak().get(i).getAbizena()+"', taldea='"+ALikasleak().get(i).getTaldea()+"' where nan='"+DB_AL().get(i)+"'");
-						aldaketak++;
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+		boolean badago=false;
+		for(int w=0;w<ALikasleak().size();w++) {
+			for(int i=0;i<DB_AL().size();i++) {
+				if(DB_AL().get(i).equals(ALikasleak().get(w).getNana())) {
+					badago=true;
+					
 				}
-				else {
-					try {
-						st.execute("insert into ikasleak2 values('"+ALikasleak().get(i).getNana()+"','"+ALikasleak().get(i).getIzena()+"','"+ALikasleak().get(i).getAbizena()+"','"+ALikasleak().get(i).getTaldea()+"'");
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+			}
+			if(badago==true) {
+				try {
+					st.execute("update ikasleak2 set izena='"+ALikasleak().get(w).getIzena()+"',abizenak='"+ALikasleak().get(w).getAbizena()+"', taldea='"+ALikasleak().get(w).getTaldea()+"' where nan='"+DB_AL().get(w)+"'");
+					aldaketak++;
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+			}
+			else {
+				try {
+					System.out.println("insert into ikasleak2 values('"+ALikasleak().get(w).getNana()+"','"+ALikasleak().get(w).getIzena()+"','"+ALikasleak().get(w).getAbizena()+"','"+ALikasleak().get(w).getTaldea()+"'");
+					st.execute("insert into ikasleak2 values('"+ALikasleak().get(w).getNana()+"','"+ALikasleak().get(w).getIzena()+"','"+ALikasleak().get(w).getAbizena()+"','"+ALikasleak().get(w).getTaldea()+"')");
+					inserzioak++;
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 		}
+		/*try {
+		System.out.println("berdinak dira, "+ALikasleak().get(i).getIzena()+ALikasleak().get(i).getAbizena()+ALikasleak().get(i).getTaldea()+"' where nan='"+DB_AL().get(i)+"'");
+		st.execute("update ikasleak2 set izena='"+ALikasleak().get(w).getIzena()+"',abizenak='"+ALikasleak().get(w).getAbizena()+"', taldea='"+ALikasleak().get(w).getTaldea()+"' where nan='"+DB_AL().get(i)+"'");
+		aldaketak++;
+		break;
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
+else {
+	try {
+		System.out.println("insert into ikasleak2 values('"+ALikasleak().get(w).getNana()+"','"+ALikasleak().get(w).getIzena()+"','"+ALikasleak().get(w).getAbizena()+"','"+ALikasleak().get(w).getTaldea()+"'");
+		st.execute("insert into ikasleak2 values('"+ALikasleak().get(w).getNana()+"','"+ALikasleak().get(w).getIzena()+"','"+ALikasleak().get(w).getAbizena()+"','"+ALikasleak().get(w).getTaldea()+"')");
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}*/
 		
 		
 	}
